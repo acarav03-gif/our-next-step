@@ -1,0 +1,205 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 99%, #feada6 100%);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  overflow: hidden;
+  perspective: 1000px;
+}
+
+/* Floating Hearts Background */
+.heart-bg {
+  position: absolute;
+  top: -10vh;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 20px;
+  animation: fall 6s linear infinite;
+  user-select: none;
+  z-index: 1;
+}
+
+@keyframes fall {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(110vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+/* Envelope & Card Container */
+.card-container {
+  width: 340px;
+  height: 480px;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  cursor: pointer;
+  z-index: 10;
+}
+
+.card-container.flipped {
+  transform: rotateY(180deg);
+  cursor: default;
+}
+
+.card-face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 20px;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+  text-align: center;
+}
+
+/* Front of Card (Unrevealing Cover) */
+.card-front {
+  background: #ffffff;
+  border: 3px solid #ff4b2b;
+}
+
+.gift-icon {
+  font-size: 70px;
+  margin-bottom: 20px;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
+.card-front h2 {
+  color: #333;
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.card-front p {
+  color: #777;
+  font-size: 14px;
+}
+
+.click-hint {
+  margin-top: 25px;
+  background: #ff4b2b;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 25px;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+/* Back of Card (The Proposal) */
+.card-back {
+  background: #ffffff;
+  transform: rotateY(180deg);
+  border: 3px solid #ff416c;
+  justify-content: space-between;
+}
+
+.proposal-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.card-back h1 {
+  color: #ff416c;
+  font-size: 26px;
+  margin-top: 10px;
+}
+
+.monkey-emoji {
+  font-size: 60px;
+  margin: 10px 0;
+}
+
+.proposal-text {
+  color: #444;
+  font-size: 18px;
+  line-height: 1.4;
+  font-weight: 600;
+}
+
+.btn-group {
+  display: flex;
+  gap: 15px;
+  width: 100%;
+  justify-content: center;
+  position: relative;
+  min-height: 50px;
+  margin-bottom: 10px;
+}
+
+button {
+  padding: 12px 25px;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: transform 0.2s, background-color 0.2s;
+}
+
+.btn-yes {
+  background: linear-gradient(to right, #ff416c, #ff4b2b);
+  color: white;
+  box-shadow: 0 4px 15px rgba(255, 65, 108, 0.4);
+}
+
+.btn-yes:hover {
+  transform: scale(1.1);
+}
+
+.btn-no {
+  background: #e0e0e0;
+  color: #555;
+  position: absolute;
+}
+
+/* Celebration Screen */
+.celebration {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+}
+
+.celeb-emoji {
+  font-size: 70px;
+  margin-bottom: 10px;
+}
+
+.celebration h1 {
+  font-size: 32px;
+  color: #ff416c;
+  margin-bottom: 15px;
+}
+
+.celebration p {
+  font-size: 18px;
+  color: #333;
+}
