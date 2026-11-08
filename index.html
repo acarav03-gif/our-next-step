@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>A Special Surprise For You ❤️</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="card-container" id="cardContainer" onclick="revealCard()">
+    <!-- Front Face (Unrevealing Surprise) -->
+    <div class="card-face card-front">
+      <div class="gift-icon">🎁</div>
+      <h2>You Have 1 New Secret Message</h2>
+      <p>Someone special sent you a private card...</p>
+      <div class="click-hint">Tap to Reveal</div>
+    </div>
+
+    <!-- Back Face (The Proposal) -->
+    <div class="card-face card-back" id="cardBack">
+      <div id="proposalContent" class="proposal-inner">
+        <h1>Hey Sweetheart! 🙈</h1>
+        <div class="monkey-emoji">🐒❤️</div>
+        <p class="proposal-text">Will you marry your Bandar?</p>
+        
+        <div class="btn-group" id="btnGroup">
+          <button class="btn-yes" onclick="acceptProposal(event)">YES! 💖</button>
+          <button class="btn-no" id="noBtn" onmouseover="moveButton()" onclick="moveButton()">No 😜</button>
+        </div>
+      </div>
+
+      <!-- Final Celebration Screen -->
+      <div class="celebration" id="celebrationContent">
+        <div class="celeb-emoji">💍🐒✨</div>
+        <h1>Woohoo! 🎉</h1>
+        <p>You made your Bandar the happiest in the world! ❤️</p>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
